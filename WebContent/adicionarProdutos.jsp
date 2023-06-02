@@ -9,20 +9,20 @@
 <body>
 
 	<center>
-		<h1>Gerenciamento de Contatos</h1>
+		<h1>Gerenciamento de Produtos</h1>
 		<h2>
-			&nbsp;&nbsp;&nbsp; <a href="">Lista Contatos</a>
+			&nbsp;&nbsp;&nbsp; <a href="principal.jsp">Lista de Produtos</a>
 
 		</h2>
 	</center>
 
 	<div align="center">
 
-		<form action="ServletsContatos" method="post">
+		<form action="" method="post">
 
 			<table border="1" cellpadding="5">
 				<caption>
-					<h2>Cadastrar Contatos</h2>
+					<h2>Cadastrar Produtos</h2>
 				</caption>
 
 				<tr>
