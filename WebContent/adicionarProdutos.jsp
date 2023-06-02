@@ -18,7 +18,7 @@
 
 	<div align="center">
 
-		<form action="" method="post">
+		<form action="ServletProdutos" method="post">
 
 			<table border="1" cellpadding="5">
 				<caption>
@@ -44,12 +44,7 @@
 				<tr>
 					<th>Valor:</th>
 					<td><input type="text" onKeyUp="mascaraMoeda(this, event)"
-						id="valor" name="data" size="45" value="" /></td>
-				</tr>
-				<tr>
-					<th>Data:</th>
-					<td><input type="date" id="data" name="data" size="45"
-						value="" /></td>
+						id="valor" name="valor" size="45" value="" /></td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center"><input type="submit"
@@ -73,7 +68,7 @@
 			var tecla = (!evento) ? window.event.keyCode : evento.which;
 			var valor = campo.value.replace(/[^\d]+/gi, '').reverse();
 			var resultado = "";
-			var mascara = "##.###.###,##".reverse();
+			var mascara = "##.###.###.##".reverse();
 			for (var x = 0, y = 0; x < mascara.length && y < valor.length;) {
 				if (mascara.charAt(x) != '#') {
 					resultado += mascara.charAt(x);
