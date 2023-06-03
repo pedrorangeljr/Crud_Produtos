@@ -27,19 +27,18 @@
 				<th>ID</th>
 				<th>Produto</th>
 				<th>Categoria</th>
-				<th>Data</th>
 				<th>Valor</th>
 				<th>Ações</th>
 			</tr>
-			<c:forEach items="${contatos}" var="contato">
+			<c:forEach items="${fornecedores}" var="fornecedor">
 				<tr>
-					<td><c:out value=""></c:out></td>
-					<td><c:out value=""></c:out></td>
-					<td><c:out value=""></c:out></td>
-					<td><c:out value=""></c:out></td>
-					<td><a href="ServletsContatos?acao=editar&contato=" />Editar</a>
+					<td><c:out value="${fornecedor.id }"></c:out></td>
+					<td><c:out value="${fornecedor.produto }"></c:out></td>
+					<td><c:out value="${fornecedor.categoria }"></c:out></td>
+					<td><c:out value="${fornecedor.valor }"></c:out></td>
+					<td><a href="ServletsContatos?acao=editar&contato=${fornecedor.id }" />Editar</a>
 						&nbsp;&nbsp;&nbsp;&nbsp; <a
-						href="ServletsContatos?acao=delete&contato="
+						href="ServletsContatos?acao=delete&contato=${fornecedor.id }"
 						onclick="return confirm('Tem certeza que deseja excluir ?')">Excluir</a></td>
 				</tr>
 			</c:forEach>

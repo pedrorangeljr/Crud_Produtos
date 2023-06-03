@@ -27,6 +27,22 @@ public class ServletProdutos extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		try {
+			
+			String acao = request.getParameter("acao");
+			
+			if(acao.equalsIgnoreCase("listarTodos")) {
+				
+				RequestDispatcher dispatcher = request.getRequestDispatcher("principal.jsp");
+				request.setAttribute("fornecedores", daoProdutos.listar());
+				dispatcher.forward(request, response);
+			}
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+		
 	}
 
 	
@@ -54,6 +70,7 @@ public class ServletProdutos extends HttpServlet {
 		   }
 		   
 		   RequestDispatcher dispatcher = request.getRequestDispatcher("principal.jsp");
+		   request.setAttribute("fornecedores", daoProdutos.listar());
 		   dispatcher.forward(request, response);
 			
 		} catch (Exception e) {
