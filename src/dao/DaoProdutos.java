@@ -75,4 +75,31 @@ public class DaoProdutos {
 
 		return listar;
 	}
+
+	/* Metodo deletar */
+
+	public void deletar(String id) {
+
+		try {
+
+			String sql = "delete from fornecedor where id = '" + id + "'";
+			PreparedStatement delete = connection.prepareStatement(sql);
+			delete.execute();
+
+			connection.commit();
+
+		} catch (Exception e) {
+
+			try {
+
+				connection.rollback();
+
+			} catch (SQLException e1) {
+
+				e1.printStackTrace();
+			}
+
+			e.printStackTrace();
+		}
+	}
 }

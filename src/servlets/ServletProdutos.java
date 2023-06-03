@@ -30,8 +30,18 @@ public class ServletProdutos extends HttpServlet {
 		try {
 			
 			String acao = request.getParameter("acao");
+			String fornecedor = request.getParameter("fornecedor");
 			
-			if(acao.equalsIgnoreCase("listarTodos")) {
+			if(acao.equalsIgnoreCase("delete")) {
+				
+				daoProdutos.deletar(fornecedor);
+				
+				RequestDispatcher dispatcher = request.getRequestDispatcher("principal.jsp");
+				request.setAttribute("fornecedores", daoProdutos.listar());
+				dispatcher.forward(request, response);
+			}
+			
+			else if(acao.equalsIgnoreCase("listarTodos")) {
 				
 				RequestDispatcher dispatcher = request.getRequestDispatcher("principal.jsp");
 				request.setAttribute("fornecedores", daoProdutos.listar());

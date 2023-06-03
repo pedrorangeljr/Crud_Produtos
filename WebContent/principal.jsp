@@ -12,7 +12,7 @@
 <br />
 
 	<center>
-		<h1>Gerenciamentos de Contatos</h1>
+		<h1>Gerenciamentos de Produtos</h1>
 		<h2>
 			<a href="adicionarProdutos.jsp">Adicionar Protudos</a> &nbsp;&nbsp;&nbsp;
 
@@ -36,9 +36,9 @@
 					<td><c:out value="${fornecedor.produto }"></c:out></td>
 					<td><c:out value="${fornecedor.categoria }"></c:out></td>
 					<td><c:out value="${fornecedor.valor }"></c:out></td>
-					<td><a href="ServletsContatos?acao=editar&contato=${fornecedor.id }" />Editar</a>
+					<td><a href="ServletProdutos?acao=editar&fornecedor=${fornecedor.id }" />Editar</a>
 						&nbsp;&nbsp;&nbsp;&nbsp; <a
-						href="ServletsContatos?acao=delete&contato=${fornecedor.id }"
+						href="ServletProdutos?acao=delete&fornecedor=${fornecedor.id }"
 						onclick="return confirm('Tem certeza que deseja excluir ?')">Excluir</a></td>
 				</tr>
 			</c:forEach>
