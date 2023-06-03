@@ -28,23 +28,23 @@
 				<tr>
 					<th>ID:</th>
 					<td><input type="text" id="id" name="id" placeholder="ID"
-						readonly="readonly" value=""></td>
+						readonly="readonly" value="${fornecedores.id }"></td>
 				</tr>
 
 				<tr>
 					<th>Produto:</th>
 					<td><input type="text" id="produto" name="produto" size="45"
-						value="" /></td>
+						value="${fornecedores.produto }" /></td>
 				</tr>
 				<tr>
 					<th>Categoria:</th>
 					<td><input type="text" id="categoria" name="categoria"
-						size="45" value="" /></td>
+						size="45" value="${fornecedores.categoria }" /></td>
 				</tr>
 				<tr>
 					<th>Valor:</th>
 					<td><input type="text" onKeyUp="mascaraMoeda(this, event)"
-						id="valor" name="valor" size="45" value="" /></td>
+						id="valor" name="valor" size="45" value="${fornecedores.valor }" /></td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center"><input type="submit"

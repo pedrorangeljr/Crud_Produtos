@@ -102,4 +102,27 @@ public class DaoProdutos {
 			e.printStackTrace();
 		}
 	}
+	
+	/*Metodo carrega os dados para editar*/
+	
+	public Fornecedor consultar(String id) throws Exception {
+		
+		String sql = "select * from fornecedor where id = '"+id+"'";
+		PreparedStatement select = connection.prepareStatement(sql);
+		ResultSet retorno = select.executeQuery();
+		
+		if(retorno.next()) {
+			
+			Fornecedor fornecedor = new Fornecedor();
+			
+			fornecedor.setId(retorno.getLong("id"));
+			fornecedor.setProduto(retorno.getString("produto"));
+			fornecedor.setCategoria(retorno.getString("categoria"));
+			fornecedor.setValor(retorno.getFloat("valor"));
+			
+			return fornecedor;
+		}
+		
+		return null;
+	}
 }
