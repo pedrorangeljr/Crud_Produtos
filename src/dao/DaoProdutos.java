@@ -57,7 +57,7 @@ public class DaoProdutos {
 
 		List<Fornecedor> listar = new ArrayList<Fornecedor>();
 
-		String sql = "select * from fornecedor";
+		String sql = "select * from fornecedor order by id asc";
 		PreparedStatement select = connection.prepareStatement(sql);
 		ResultSet resultado = select.executeQuery();
 
@@ -124,5 +124,41 @@ public class DaoProdutos {
 		}
 		
 		return null;
+	}
+	
+	/*Metodo que não deica gravar Telefone duplicado*/
+	
+	
+	
+	/*metodo atualizar*/
+	
+	public void atualizar(Fornecedor fornecedor) {
+		
+		try {
+			
+			String sql = "update fornecedor set produto = ?, categoria = ?, valor = ? where id = " + fornecedor.getId();
+			PreparedStatement update = connection.prepareStatement(sql);
+			
+			update.setString(1, fornecedor.getProduto());
+			update.setString(2, fornecedor.getCategoria());
+			update.setFloat(3, fornecedor.getValor());
+			update.executeUpdate();
+			
+			connection.commit();
+			
+			
+		} catch (Exception e) {
+			
+			try {
+				
+				connection.rollback();
+				
+			} catch (SQLException e1) {
+				
+				e1.printStackTrace();
+			}
+			
+			e.printStackTrace();
+		}
 	}
 }

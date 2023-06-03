@@ -83,6 +83,11 @@ public class ServletProdutos extends HttpServlet {
 
 				daoProdutos.salvarProdutos(fornecedor);
 			}
+			
+			else if(id != null && !id.isEmpty() ) {
+				
+				daoProdutos.atualizar(fornecedor);
+			}
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("principal.jsp");
 			request.setAttribute("fornecedores", daoProdutos.listar());
