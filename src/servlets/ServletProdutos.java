@@ -78,11 +78,18 @@ public class ServletProdutos extends HttpServlet {
 			fornecedor.setProduto(produto);
 			fornecedor.setCategoria(categoria);
 			fornecedor.setValor(valor);
-
-			if (id == null || id.isEmpty()) {
+			
+			if(id == null || id.isEmpty() && daoProdutos.validarProdutos(produto)) {
+				
+				request.setAttribute("mensagem", "Já existe produto com o mesmo nome");
+			}
+			
+			else if (id == null || id.isEmpty()) {
 
 				daoProdutos.salvarProdutos(fornecedor);
 			}
+			
+			
 			
 			else if(id != null && !id.isEmpty() ) {
 				

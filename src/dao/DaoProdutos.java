@@ -128,7 +128,26 @@ public class DaoProdutos {
 	
 	/*Metodo que não deica gravar Telefone duplicado*/
 	
-	
+	public boolean validarProdutos(String produto) {
+		
+		try {
+			
+			String sql = "select count(1) as quantidade from fornecedor where produto = '"+produto+"'";
+			PreparedStatement consultar = connection.prepareStatement(sql);
+			ResultSet resultado = consultar.executeQuery();
+			
+			if(resultado.next()) {
+				
+				return resultado.getInt("quantidade") <=0;
+			}
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
 	
 	/*metodo atualizar*/
 	
